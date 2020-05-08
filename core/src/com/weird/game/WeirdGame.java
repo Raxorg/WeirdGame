@@ -26,13 +26,8 @@ public class WeirdGame extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		float r,g,b;
-
-		r = random.nextFloat();
-		g = random.nextFloat();
-		b = random.nextFloat();
-
-		Gdx.gl.glClearColor(r, g, b, 1f);
+		// Ignore my changes, apply yours
+		Gdx.gl.glClearColor(0.5f, 0.5f, 0.5f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
