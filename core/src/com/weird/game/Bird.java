@@ -7,12 +7,11 @@ import com.badlogic.gdx.math.Vector2;
 public class Bird {
 
     private Sprite sprite;
-    private Vector2 position, speed;
+    private Vector2 speed;
 
     public Bird(Sprite birdSprite) {
         sprite = new Sprite(birdSprite);
         sprite.setSize(sprite.getWidth() * 4f, sprite.getHeight() * 4f);
-        position = new Vector2();
         speed = new Vector2();
     }
 
@@ -20,8 +19,20 @@ public class Bird {
         sprite.draw(spriteBatch);
     }
 
-    public Vector2 getPosition() {
-        return position;
+    public float getX() {
+        return sprite.getX();
+    }
+
+    public void setX(float x) {
+        sprite.setX(x);
+    }
+
+    public float getY() {
+        return sprite.getY();
+    }
+
+    public void setY(float y) {
+        sprite.setY(y);
     }
 
     public Vector2 getSpeed() {
