@@ -7,20 +7,30 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
+import java.util.Random;
+
 public class WeirdGame extends ApplicationAdapter {
 	SpriteBatch batch;
 	Texture img;
-	
+	Random random;
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		batch.setColor(Color.GREEN);
 		img = new Texture("badlogic.jpg");
+		random = new Random();
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		float r,g,b;
+
+		r = random.nextFloat();
+		g = random.nextFloat();
+		b = random.nextFloat();
+
+		Gdx.gl.glClearColor(r, g, b, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
