@@ -22,6 +22,8 @@ public class WeirdGame extends ApplicationAdapter {
 		random = new Random();
 	}
 
+	// THIS IS MY POWERFUL COMMENT, YOU CAN DELETE THIS THO :D
+
 	@Override
 	public void render () {
 		float r,g,b;
