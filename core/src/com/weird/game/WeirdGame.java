@@ -15,6 +15,8 @@ public class WeirdGame extends ApplicationAdapter {
     private Bird bird;
     private SpriteBatch spriteBatch;
 
+    private float x,y;
+
     @Override
     public void create() {
         logic = new Logic();
@@ -33,9 +35,17 @@ public class WeirdGame extends ApplicationAdapter {
 
         logic.update(Gdx.graphics.getDeltaTime());
 
+
+
         spriteBatch.begin();
         bird.draw(spriteBatch);
         spriteBatch.end();
+        updateScene();
+    }
+
+    private void updateScene()
+    {
+
     }
 
     @Override
