@@ -2,7 +2,6 @@ package com.weird.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -15,17 +14,18 @@ public class WeirdGame extends ApplicationAdapter {
     private Bird bird;
     private SpriteBatch spriteBatch;
 
-    private float x,y;
-
     @Override
     public void create() {
         logic = new Logic();
+
+        Input input = new Input();
+        input.setLogic(logic);
+
         Sprite birdSprite = new Sprite(new Texture("texture.png"), 136, 0, 17, 12);
         bird = new Bird(birdSprite);
-        spriteBatch = new SpriteBatch();
-        spriteBatch.setColor(Color.GREEN);
-
         logic.setBird(bird);
+
+        spriteBatch = new SpriteBatch();
     }
 
     @Override
@@ -35,17 +35,9 @@ public class WeirdGame extends ApplicationAdapter {
 
         logic.update(Gdx.graphics.getDeltaTime());
 
-
-
         spriteBatch.begin();
         bird.draw(spriteBatch);
         spriteBatch.end();
-        updateScene();
-    }
-
-    private void updateScene()
-    {
-
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.weird.game.Bird;
 
 public class Logic {
 
+    private InputHandler inputHandler;
     private MenuHandler menuHandler;
     private MovementHandler movementHandler;
     private ObstacleHandler obstacleHandler;
@@ -11,6 +12,7 @@ public class Logic {
     private ScoreHandler scoreHandler;
 
     public Logic() {
+        inputHandler = new InputHandler();
         menuHandler = new MenuHandler();
         movementHandler = new MovementHandler();
         obstacleHandler = new ObstacleHandler();
@@ -24,5 +26,9 @@ public class Logic {
 
     public void setBird(Bird bird) {
         movementHandler.setBird(bird);
+    }
+
+    public InputHandler getInputHandler() {
+        return inputHandler;
     }
 }
