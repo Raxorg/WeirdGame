@@ -8,7 +8,7 @@ public class Input extends InputAdapter {
 
     private Logic logic;
 
-    public Input() {
+    Input() {
         Gdx.input.setInputProcessor(this);
     }
 
@@ -17,11 +17,11 @@ public class Input extends InputAdapter {
         if (pointer != 0) {
             return false;
         }
-        logic.getInputHandler().touchDown();
+        logic.getInputHandler().touchDown(screenX, Gdx.graphics.getHeight() - screenY);
         return true;
     }
 
-    public void setLogic(Logic logic) {
+    void setLogic(Logic logic) {
         this.logic = logic;
     }
 }

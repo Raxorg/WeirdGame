@@ -7,10 +7,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.weird.game.logic.Logic;
+import com.weird.game.stuff.MainMenu;
 
 public class WeirdGame extends ApplicationAdapter {
 
     private Logic logic;
+    private MainMenu mainMenu;
     private Bird bird;
     private SpriteBatch spriteBatch;
 
@@ -20,7 +22,12 @@ public class WeirdGame extends ApplicationAdapter {
 
         Input input = new Input();
         input.setLogic(logic);
-
+        // Initialize the main menu
+        Sprite backgroundSprite = new Sprite(new Texture("pixel.png"));
+        Sprite playButtonSprite = new Sprite(new Texture("texture.png"), 0, 83, 29, 16);
+        mainMenu = new MainMenu(backgroundSprite, playButtonSprite);
+        logic.setMainMenu(mainMenu);
+        // Initialize the bird
         Sprite birdSprite = new Sprite(new Texture("texture.png"), 136, 0, 17, 12);
         bird = new Bird(birdSprite);
         logic.setBird(bird);
@@ -37,6 +44,7 @@ public class WeirdGame extends ApplicationAdapter {
 
         spriteBatch.begin();
         bird.draw(spriteBatch);
+        mainMenu.draw(spriteBatch);
         spriteBatch.end();
     }
 
