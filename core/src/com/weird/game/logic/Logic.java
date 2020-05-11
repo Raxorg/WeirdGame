@@ -40,7 +40,11 @@ public class Logic {
         return inputHandler;
     }
 
-    public MainMenuHandler getMainMenuHandler() {
+    MainMenuHandler getMainMenuHandler() {
         return mainMenuHandler;
+    }
+
+    public MovementHandler getMovementHandler() {
+        return movementHandler;
     }
 }
