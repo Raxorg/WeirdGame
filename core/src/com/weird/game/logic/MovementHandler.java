@@ -1,5 +1,6 @@
 package com.weird.game.logic;
 
+import com.badlogic.gdx.Gdx;
 import com.weird.game.Bird;
 
 public class MovementHandler {
@@ -7,12 +8,16 @@ public class MovementHandler {
     private Bird bird;
 
 
-    public void update(float delta) {
-        bird.updatePosition();
+
+    public static void update(float delta) {
+        Bird.updatePosition();
     }
 
-    void touchDown() {
-        // Here we make the bird go up or "flap"
+   public static void touchDown() {
+        if(Gdx.input.isButtonJustPressed(0))
+        {
+            Bird.addGravity();
+        }
     }
 
     public void setBird(Bird bird) {

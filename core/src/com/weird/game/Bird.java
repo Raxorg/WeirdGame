@@ -4,13 +4,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.weird.game.logic.MovementHandler;
 
 public class Bird {
 
-    private Sprite sprite;
-    private Vector2 position, speed,velocity,gravity,defaultPosition;
+    private static Sprite sprite;
+    private static Vector2 position, speed,velocity,gravity,defaultPosition;
 
     private  static  final Vector2 damping = new Vector2(0.99f,0.99f);
+
 
     public Bird(Sprite birdSprite) {
         sprite = new Sprite(birdSprite);
@@ -19,6 +21,7 @@ public class Bird {
         speed = new Vector2();
         velocity = new Vector2();
         gravity = new Vector2();
+
 
         // Center of the Screen
         defaultPosition.set((Gdx.graphics.getWidth() /2) - (sprite.getWidth() / 2) , (Gdx.graphics.getHeight() /2 )-
@@ -45,21 +48,26 @@ public class Bird {
     }
 
     // set Gravity
-    private void gravityOfBird()
+    public static void gravityOfBird()
     {
-
-
         velocity.scl(damping);
         velocity.add(gravity);
         position.mulAdd(velocity, Gdx.graphics.getDeltaTime());
     }
 
+    public static void addGravity()
+    {
+       velocity.scl(damping);
+       velocity.set(defaultPosition.x,( position.y + velocity.y ) * 0.5f);
+    }
+
     // Updating the Position & Gravity of sprite
-    public void  updatePosition()
+    public static void  updatePosition()
     {
         gravityOfBird();
 
         sprite.setPosition(defaultPosition.x,position.y );
+        MovementHandler.touchDown();
     }
 
     public Vector2 getPosition() {
