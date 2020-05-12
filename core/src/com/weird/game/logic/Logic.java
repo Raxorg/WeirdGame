@@ -23,6 +23,10 @@ public class Logic {
         inputHandler.setLogic(this);
     }
 
+    public void initialState() {
+        movementHandler.initialize();
+    }
+
     public void update(float delta) {
         movementHandler.update(delta);
     }
@@ -44,7 +48,7 @@ public class Logic {
         return mainMenuHandler;
     }
 
-    public MovementHandler getMovementHandler() {
+    MovementHandler getMovementHandler() {
         return movementHandler;
     }
 }

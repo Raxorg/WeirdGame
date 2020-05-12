@@ -31,6 +31,8 @@ public class WeirdGame extends ApplicationAdapter {
         Sprite birdSprite = new Sprite(new Texture("texture.png"), 136, 0, 17, 12);
         bird = new Bird(birdSprite);
         logic.setBird(bird);
+        // Let the Logic object configure the initial state of the handlers before updating each frame
+        logic.initialState();
 
         spriteBatch = new SpriteBatch();
     }
