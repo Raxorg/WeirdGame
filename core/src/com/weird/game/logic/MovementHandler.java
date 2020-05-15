@@ -2,7 +2,7 @@ package com.weird.game.logic;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
-import com.weird.game.Bird;
+import com.weird.game.stuff.Bird;
 
 class MovementHandler {
 
@@ -26,7 +26,7 @@ class MovementHandler {
         gravity.set(0, -4);
     }
 
-    void update(float delta) {
+    void movePlayer(float delta) {
         updatePosition(delta);
     }
 

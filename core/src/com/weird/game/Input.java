@@ -4,6 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.weird.game.logic.Logic;
 
+/**
+ * This class processes the raw input for later use by the adequate logic handlers
+ */
 public class Input extends InputAdapter {
 
     private Logic logic;

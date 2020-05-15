@@ -1,8 +1,11 @@
 package com.weird.game.logic;
 
-import com.weird.game.Bird;
 import com.weird.game.stuff.MainMenu;
+import com.weird.game.stuff.Stuff;
 
+/**
+ * This class connects all the logic handlers with their respective required resources they need to work with
+ */
 public class Logic {
 
     private InputHandler inputHandler;
@@ -28,7 +31,8 @@ public class Logic {
     }
 
     public void update(float delta) {
-        movementHandler.update(delta);
+        movementHandler.movePlayer(delta);
+        obstacleHandler.moveObstacles(delta);
     }
 
     public void setMainMenu(MainMenu mainMenu) {
@@ -36,8 +40,9 @@ public class Logic {
         mainMenuHandler.setMainMenu(mainMenu);
     }
 
-    public void setBird(Bird bird) {
-        movementHandler.setBird(bird);
+    public void setStuff(Stuff stuff) {
+        movementHandler.setBird(stuff.getBird());
+        obstacleHandler.setStuff(stuff);
     }
 
     public InputHandler getInputHandler() {

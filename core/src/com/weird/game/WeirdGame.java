@@ -8,12 +8,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.weird.game.logic.Logic;
 import com.weird.game.stuff.MainMenu;
+import com.weird.game.stuff.Obstacle;
+import com.weird.game.stuff.Stuff;
 
 public class WeirdGame extends ApplicationAdapter {
 
     private Logic logic;
     private MainMenu mainMenu;
-    private Bird bird;
+    private Stuff stuff;
     private SpriteBatch spriteBatch;
 
     @Override
@@ -27,10 +29,10 @@ public class WeirdGame extends ApplicationAdapter {
         Sprite playButtonSprite = new Sprite(new Texture("texture.png"), 0, 83, 29, 16);
         mainMenu = new MainMenu(backgroundSprite, playButtonSprite);
         logic.setMainMenu(mainMenu);
-        // Initialize the bird
-        Sprite birdSprite = new Sprite(new Texture("texture.png"), 136, 0, 17, 12);
-        bird = new Bird(birdSprite);
-        logic.setBird(bird);
+        // Initialize bird and obstacles (stuff)
+        stuff = new Stuff();
+        stuff.initializeStuff();
+        logic.setStuff(stuff);
         // Let the Logic object configure the initial state of the handlers before updating each frame
         logic.initialState();
 
@@ -45,7 +47,10 @@ public class WeirdGame extends ApplicationAdapter {
         logic.update(Gdx.graphics.getDeltaTime());
 
         spriteBatch.begin();
-        bird.draw(spriteBatch);
+        stuff.getBird().draw(spriteBatch);
+        for (Obstacle obstacle : stuff.getObstacles()) {
+            obstacle.draw(spriteBatch);
+        }
         mainMenu.draw(spriteBatch);
         spriteBatch.end();
     }

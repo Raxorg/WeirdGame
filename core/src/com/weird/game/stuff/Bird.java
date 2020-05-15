@@ -1,4 +1,4 @@
-package com.weird.game;
+package com.weird.game.stuff;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -15,7 +15,7 @@ public class Bird {
     }
 
 
-    void draw(SpriteBatch spriteBatch) {
+    public void draw(SpriteBatch spriteBatch) {
         sprite.draw(spriteBatch);
     }
 
