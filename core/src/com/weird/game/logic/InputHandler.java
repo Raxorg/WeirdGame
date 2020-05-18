@@ -8,9 +8,11 @@ public class InputHandler {
     private MainMenu mainMenu;
 
     public void touchDown(float x, float y) {
-        if (mainMenu.getPlayButton().contains(x, y)) {
-            logic.getMainMenuHandler().hideMainMenu();
-            return;
+        if (!logic.getMainMenuHandler().isHidden()) {
+            if (mainMenu.getPlayButton().contains(x, y)) {
+                logic.getMainMenuHandler().hideMainMenu();
+                return;
+            }
         }
         logic.getMovementHandler().touchDown();
     }

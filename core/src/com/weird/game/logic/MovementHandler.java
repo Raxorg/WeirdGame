@@ -13,12 +13,8 @@ class MovementHandler {
         gravity = new Vector2(0f, -10f);
     }
 
-    void movePlayer(float delta) {
-        updatePosition(delta);
-    }
-
     // Updating the Position & Gravity of sprite
-    private void updatePosition(float delta) {
+    void movePlayer(float delta) {
         velocity.add(gravity);
         Vector2 newPosition = bird.getPosition().mulAdd(velocity, delta);
         bird.setPosition(newPosition.x, newPosition.y);
