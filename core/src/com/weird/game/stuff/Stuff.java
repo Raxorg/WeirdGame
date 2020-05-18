@@ -27,11 +27,8 @@ public class Stuff {
         Sprite obstacleTop = new Sprite(new Texture("texture.png"), 192, 0, 24, 14);
         Sprite obstacleBottom = new Sprite(new Texture("texture.png"), 136, 16, 22, 3);
         obstacles[0] = new Obstacle(obstacleTop, obstacleBottom);
-        obstacles[0].setX(Gdx.graphics.getWidth());
         obstacles[1] = new Obstacle(obstacleTop, obstacleBottom);
-        obstacles[1].setX(Gdx.graphics.getWidth() * 1.33f);
         obstacles[2] = new Obstacle(obstacleTop, obstacleBottom);
-        obstacles[2].setX(Gdx.graphics.getWidth() * 1.66f);
     }
 
     public Bird getBird() {

@@ -2,6 +2,7 @@ package com.weird.game.stuff;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class Bird {
@@ -24,5 +25,9 @@ public class Bird {
 
     public Vector2 getPosition() {
         return new Vector2(sprite.getX(), sprite.getY());
+    }
+
+    public Rectangle getBounds() {
+        return sprite.getBoundingRectangle();
     }
 }

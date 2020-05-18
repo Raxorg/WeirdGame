@@ -9,8 +9,8 @@ class MovementHandler {
     private Vector2 velocity, gravity;
 
     void initialize() {
-        velocity = new Vector2(0f, 500f);
-        gravity = new Vector2(0f, -10f);
+        velocity = new Vector2(0f, 400f);
+        gravity = new Vector2(0f, -15f);
     }
 
     // Updating the Position & Gravity of sprite
@@ -22,7 +22,7 @@ class MovementHandler {
 
     void touchDown() {
         // Add vertical velocity
-        velocity.set(0f, 300f);
+        velocity.set(0f, 400f);
     }
 
     void setBird(Bird bird) {

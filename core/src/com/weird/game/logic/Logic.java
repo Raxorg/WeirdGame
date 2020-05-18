@@ -24,15 +24,18 @@ public class Logic {
         scoreHandler = new ScoreHandler();
 
         inputHandler.setLogic(this);
+        playerCollisionHandler.setLogic(this);
     }
 
     public void initialState() {
+        obstacleHandler.spawnObstacles();
         movementHandler.initialize();
     }
 
     public void update(float delta) {
         movementHandler.movePlayer(delta);
         obstacleHandler.moveObstacles(delta);
+        playerCollisionHandler.checkForCollision();
     }
 
     public void setMainMenu(MainMenu mainMenu) {
@@ -43,6 +46,7 @@ public class Logic {
     public void setStuff(Stuff stuff) {
         movementHandler.setBird(stuff.getBird());
         obstacleHandler.setStuff(stuff);
+        playerCollisionHandler.setStuff(stuff);
     }
 
     public InputHandler getInputHandler() {
@@ -55,5 +59,9 @@ public class Logic {
 
     MovementHandler getMovementHandler() {
         return movementHandler;
+    }
+
+    ObstacleHandler getObstacleHandler() {
+        return obstacleHandler;
     }
 }
